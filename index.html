@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light System</title>
+    <link rel="stylesheet" href="style.css">
+    
+ </head> <body>
+    
+    <div class="trafficlight">
+        <div class="light red" id="redLight"></div>
+        <div class="light yellow" id="yellowLight"></div>
+        <div class="light green" id="greenLight"></div>
+    </div>
+    
+    <div class="button-container">
+        <button id="stopButton" onclick="toggleLight('red')" aria-label="Stop">Stop</button>
+        <button id="waitButton" onclick="toggleLight('yellow')" aria-label="Wait">Wait</button>
+        <button id="goButton" onclick="toggleLight('green')" aria-label="Go">Go</button>
+        <button id="startButton" onclick="toggleAutoCycle()" aria-label="Start">Start Cycle</button>
+    </div>
+
+    <div class="reflection" id="reflectionContainer">
+        <div id="redReflection" class="red-reflection">
+            <h3>🔴 Red Light: Stop</h3>
+            <p>The red light signals all drivers to <strong>stop</strong>. 
+            🚫 It’s a clear indicator to halt at intersections or pedestrian crossings. 
+            Ignoring this light can lead to accidents, making it the most important signal for keeping people safe. 🛑</p>
+        </div>
+
+        <div id="yellowReflection" class="yellow-reflection">
+            <h3>🟡 Yellow Light: Caution/Prepare to Stop</h3>
+            <p>The yellow light is a <strong>warning</strong>. 
+            ⚠️ It tells drivers that the light is about to turn red. 
+            This is the time to slow down and prepare to stop unless you’re too close to the intersection to do so safely. 🚦</p>
+        </div>
+
+        <div id="greenReflection" class="green-reflection">
+            <h3>🟢 Green Light: Go</h3>
+            <p>The green light gives you the <strong>go-ahead</strong> to proceed. 
+            ✅ It’s a signal that the road ahead is clear, but you should still be cautious of other road users, like pedestrians or merging vehicles. 🚗</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+ </body> </html>
+

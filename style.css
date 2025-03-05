@@ -1,0 +1,160 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://img.freepik.com/free-vector/night-city-crossroad-scene-with-cars-background_107791-18540.jpg?w=1380&t=st=1729117635~exp=1729118235~hmac=d270c942214491ad1faee8d31593073df910f41bd43b68ead7c4558783f5e2d9");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ecf0f1;
+    text-align: center;
+    object-fit: cover;
+}
+
+/* Main Traffic Light styles */
+.trafficlight {
+    background: #222;
+    background-image: linear-gradient(transparent 2%, #111 2%, transparent 3%, #111 30%);
+    width: 170px;
+    height: 400px;
+    top: 10rem;
+    border-radius: 20px;
+    position: absolute;
+    border: solid 5px #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; /* Center the lights  */
+}
+
+.trafficlight:after {
+    background: #222;
+    background-image: linear-gradient(-0deg, #2b2626, #2c2727 30%, #463b3b);
+    content: "";
+    border-radius: 30%;
+    width: 45px;
+    height: 655px;
+    margin-left: 3px;
+    position: absolute;
+    top: 150px;
+    z-index: -1;
+}
+
+/* Not - Active Light styles */
+.light {
+    width: 120px;
+    height: 110px;
+    border-radius: 60%;
+    margin: 25px 0;
+    background-color: rgba(152, 213, 233, 0.466);
+    transition: box-shadow 0.5s, background-color 0.5s, transform 0.5s;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+/* Active Light styles */
+.light.red.active {
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA+AMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIG/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAGQEBAQEAAwAAAAAAAAAAAAAAAAECAwUH/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oADAMBAAIRAxEAPwDhgHRPVAFFABQAACChFACBEUoqCkVFAAAAAAFFAXAAAAAARgRVcYCiooBAURYgKEQUFSKAAICgAAAAAAAogKoAoigIKAwArjUBBRAUABRAVQAAAAAgCioAAAAKAgAAAAACoAyoKwAIoCggoCCgqRRQRTFg0mGKAmClgJgsLAQMMADDAQUEQUBBQEBQZAGQAFAFAAIqRRQgCqEAAAA00DRKugaIugGmoAAACCKIAKgFQAZAAUAUAAAFUAUi6gC6agBQAAAAAEAQACgAgCAogqIqKiCoo0AAAAACgAEVFABBVEBKAACAlVAEoCKVQQSqgBRUBFEVFAFVUAKKggKgKogCgBQECqgKgAFBAKqAIAAACAAAAAKioAoKgCiKCKgCgCiAIACAAoAAAIAAAAAAAAAAoCKIAKigIAoAAAAACAAAAAAAAAAAAAAAAAAP/9k=');
+    box-shadow: 0 0 25px 10px rgba(255, 0, 0, 0.7);
+    animation: pulse 0.5s forwards;
+    transform: scale(1.05);
+}
+
+.light.yellow.active {
+    background-image: url('https://img.freepik.com/free-photo/gold-shiny-background-with-variating-hues_1258-85473.jpg?ga=GA1.1.367571212.1730156194&semt=ais_hybrid');
+    box-shadow: 0 0 25px 10px rgba(255, 255, 0, 0.7);
+    animation: pulse 0.5s forwards;
+    transform: scale(1.05);
+}
+
+.light.green.active {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAbFBMVEVx5zv///+q6Yxr5TH///38//38/Pzs7OzY2Njv7+/p6un08/Srq6v4+Pjf39+op6jPz8+1tbWSkZK7u7twcHDGxsaZl5mEgoRmZWaioqLf4+B/g4Dr7+x6fXqOk4+rr6xeX16Jiol4dXhXVVe9p3kEAAACPUlEQVR4nO3TYZObIBAGYLfVFVFQQPTIJU20//8/dlFzvU47uZv2S2b6PskIrsBuwBQFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8r74+oeLLEyrKJ/TERVF5b6gkor2zYzb5WrJEucwNS0PEW8jkJj+Xe8qjtlveVynzSsS0yZG9u8ffJ33LfTQFPcCSifS09y0p87awOlKl+rcpecTQtq6vSdXGDRQ7ajrFIRAPppUADc2jrERF9VijT69nc67O0lxOxkpPa20uOne1/nauZdBJV7Y2EtfbHLretE260rchxG/D4q4pvsaU4vXWXsOihsSPkxZUkXzLo8lbW9HWVvknN2vS49R767uXeAtpHYN8nL1Fn7zzYel7pjiHbvLxu/erbKeTze2sXVzTOUXDrMc5UpjUvCrdN9Ff7OiHI8OWOR/sL7np4fHJacRe+donOylPFzOHGBzF3ix6pvRiKY1yGl7R3Lh+irGLZCVAneW2X1/mWZtpkhUaWSJER6n1yk3pNH5wfA9LoibMg9dLmFa12iW43sVgwqzXYep8kJ2yi7VyQC75uBeVZ6lLpzpvKcQu+WGe0tRPwfswjDJwlk3u/6UoZmtZ3hZW8g7VjWVlTcNWk7xWqiFrNdd1La0MYN22TbsVZZVqlSZqjVHyVJXtNjjHZQXS97/JXxX1h627X4h/xt4H+N0j5uPCJX1QxueL4iMD7729w8xvpfHxoSN43NG9mGPG8fyIfKK8H6rTKxghiBtdAAAAAElFTkSuQmCC');
+    box-shadow: 0 0 25px 10px rgba(0, 255, 0, 0.7);
+    animation: pulse 0.5s forwards;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-container {
+    margin-top: 500px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 15px;
+    padding: 9px 17px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Reflection Styles */
+.reflection {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+.reflection.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reflection h3 {
+    font-size: 1.8rem;
+    color: #00ccff; /* Cleaner, professional blue */
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #00ccff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.reflection p {
+    font-size: 1.2rem;
+    color: #d3d3d3; /* Softer gray for readability */
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+}
+
+.red-reflection {
+    background-color: rgba(255, 0, 0, 0.315);
+}
+
+.yellow-reflection {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.green-reflection {
+    background-color: rgba(0, 128, 0, 0.2);
+}
